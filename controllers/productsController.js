@@ -31,12 +31,13 @@ export function getById(req, res, next) {
 export function addProduct(req, res) {
     console.log(req.file.path);
     let { path } = req.file || "";
-    let { name, description, price } = req.body;
+    let { name, description, price, doneBy } = req.body;
     let body = {
         name: name,
         description: description,
         file: path,
         price: price,
+        doneBy: doneBy,
     };
     let doc = new Product(body);
     console.log(doc);
@@ -63,12 +64,13 @@ export function deleteProductById(req, res, next) {
 //update product by id
 export function updateProductById(req, res, next) {
     let { path } = req.file || "";
-    let { name, description, price } = req.body;
+    let { name, description, price, doneBy } = req.body;
     let body = {
         name: name,
         description: description,
         file: path,
         price: price,
+        doneBy: doneBy,
     };
     let { id } = req.params;
     Product.findOneAndUpdate(
