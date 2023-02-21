@@ -1,6 +1,6 @@
 
 
-FROM node:18
+FROM node:16
 
 #Adding our working directory
 WORKDIR /usr/src/app
